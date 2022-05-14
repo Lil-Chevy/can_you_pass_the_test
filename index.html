@@ -10,14 +10,19 @@
   </head>
   <!-- body -->
   <body>
-    <header class="high-score"> View High Scores </header>
+    <header >
+      <article class="high-score"> View High Scores.</article>
+      <article class="timer-count-down">Time Left:</article>
+      <div class="timer">
+      </div>
+    </header>
     <section class="content">
     <h1 class="title">Coding Quiz Challenge</h1>
         <article>
         <p class="paragraph">try to answer the following code-related questions within the time limit.</p>
         <p class="paragraph">keep in mind that incorrect answers will penalize your score/time</p>
         <p class="paragraph">by ten seconds!</p>
-        <button onclick="quiz()" class="startBtn">Start Quiz</button>
+        <button onclick="quiz(), start()" class="startBtn">Start Quiz</button>
         </article>
         <div Class="question-one">Question One</div>
     </section>

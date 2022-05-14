@@ -21,8 +21,24 @@ function quiz() {
     document.getElementsByClassName("question-one")[0].style.display= "block";
 };
 
+// Timer function
+function startCountDown(seconds) {
+    let timer = seconds;
+
+    const interval = setInterval(() => {
+        console.log(timer);
+        timer--;
+
+        if (timer < 0){
+            alert("Time is up! You did not finish the test in time. Please try again when you are ready!");
+            clearInterval(interval);
+        }
+    }, 1000);
+}
+
 function start() {
-    // click the button starts the timer
+    // click the button starts the timer.
+    startCountDown(5);
     //presents first question information.
 
 }
