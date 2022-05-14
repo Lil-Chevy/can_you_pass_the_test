@@ -14,7 +14,7 @@ const test = {
     }]
 };
 
-
+console.dir(test);
 
 // this function makes the first question visible
 function quiz() {
@@ -23,24 +23,24 @@ function quiz() {
 
 // Timer function
 function startCountDown(seconds) {
-    let timer = seconds;
+    let timer = seconds - 1;
 
     const interval = setInterval(() => {
         console.log(timer);
         timer--;
-
-        if (timer < 0){
-            alert("Time is up! You did not finish the test in time. Please try again when you are ready!");
+        document.getElementById("timer").innerHTML = timer + 1;
+        if (timer < -1){
             clearInterval(interval);
+            alert("Time is up! You did not finish the test in time. Please try again when you are ready!");
+            document.getElementById("timer").innerHTML = 0;
         }
     }, 1000);
 }
-
+ // click the button starts the timer.
 function start() {
-    // click the button starts the timer.
     startCountDown(5);
     //presents first question information.
-
+    document.getElementById("questions").innerHTML = JSON.stringify(test.questions[0]);
 }
 
 function answerQuestion() {
