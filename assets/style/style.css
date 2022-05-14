@@ -5,3 +5,16 @@
 /* element selectors */
 
 /* class selectors */
+.title, .paragraph {
+    display: flex;
+    justify-content: center;
+}
+
+.startBtn {
+    display: flex;
+    justify-content: center;
+}
+
+.question-one {
+    display: none;
+}
