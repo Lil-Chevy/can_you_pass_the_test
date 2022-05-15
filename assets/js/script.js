@@ -1,3 +1,7 @@
+let questionDiv = document.getElementById("question-one");
+let btn = document.createElement("button");
+let additionalSection = document.createElement("section");
+
 const test = {
     startTime:undefined,
     endTime:undefined,
@@ -39,8 +43,10 @@ function startCountDown(seconds) {
  // click the button starts the timer.
 function start() {
     startCountDown(5);
+    // makes button.
+    questionDiv.appendChild(additionalSection).innerHTML+= "Yeet";
+    questionDiv.appendChild(btn).innerHTML = "feet";
     //presents first question information.
-    document.getElementById("questions").innerHTML = JSON.stringify(test.questions[0]);
 }
 
 function answerQuestion() {
