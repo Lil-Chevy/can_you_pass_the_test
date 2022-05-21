@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!-- head -->
-    <head>
+  <!-- head -->
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,21 +10,28 @@
   </head>
   <!-- body -->
   <body>
-    <header >
-      <article class="high-score"> View High Scores.</article>
+    <header>
+      <article class="high-score">View High Scores.</article>
       <article class="timer-count-down">Time Left:</article>
-      <div id="timer">
-      </div>
+      <div id="timer"></div>
     </header>
     <section class="content">
-    <h1 class="title">Coding Quiz Challenge</h1>
-        <article>
-        <p class="paragraph">try to answer the following code-related questions within the time limit.</p>
-        <p class="paragraph">keep in mind that incorrect answers will penalize your score/time</p>
+      <h1 class="title">Coding Quiz Challenge</h1>
+      <article>
+        <p class="paragraph">
+          try to answer the following code-related questions within the time
+          limit.
+        </p>
+        <p class="paragraph">
+          keep in mind that incorrect answers will penalize your score/time
+        </p>
         <p class="paragraph">by ten seconds!</p>
-        </article>
-        <button style="text-align: center" onclick="start()" class="startBtn">Start Quiz</button>
-        <div Class="questionBox"></div>
+      </article>
+      <button style="text-align: center" onclick="start()" class="startBtn">
+        Start Quiz
+      </button>
+      <div class="questionBox"></div>
+      <ul class="option-display"></ul>
     </section>
     <script src="./assets/js/script.js">
       "script.js"

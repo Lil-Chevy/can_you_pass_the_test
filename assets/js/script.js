@@ -1,7 +1,5 @@
-let questionBox = document.getElementByClass(".questionBox");
-let btn = document.createElement("button");
-let additionalSection = document.createElement("section");
-let button = (document.createElement("button").innerHTML = "options");
+let questionBox = document.querySelector(".questionBox");
+let optionDisplay = document.querySelector(".option-display");
 
 const test = {
   questionOne: {
@@ -45,25 +43,13 @@ function startCountDown(seconds) {
 function start() {
   startCountDown(600);
   // makes button.
-  // creating question box and adding ID
-  const node = document.createElement("div");
-  const questionNode = document.createTextNode("Question One");
-  questionBox.appendChild(node);
-  questionDiv.appendChild(additionalSection).innerHTML = "Question One";
-  additionalSection.setAttribute("id", "questionBox");
-
+  //how do i iterate over questions
+  questionBox.innerHTML = test.questionOne.question;
+  // display options
+  optionDisplay.innerHTML = test.questionOne.options[0];
   // creating paragraph within box to add question information.
 
-  //   document.getElementById("question-box").createElement("p");
-  //   questionDiv.appendChild(btn).innerHTML = "Answer";
-  //   let bttn = document.createElement("button");
-  //   bttn.innerHTML = test.currentQuestion.options;
-  //   questionDiv.append(bttn);
-  //   bttn.addEventListener(
   //     "click",
-  //     answerQuestion(test.questions[currentQuestion].questions)
-  //   );
-  //   button.addEventListener("click", validateAnswer(options));
 
   //presents first question information.
 }
