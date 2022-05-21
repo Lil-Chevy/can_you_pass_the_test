@@ -24,6 +24,11 @@ const test = {
       answer: "SCREEE",
       options: ["SCREEE", "bow", "e=mc2"],
     },
+    {
+      question: "pudgie can i get an__",
+      answer: "OWW OWW",
+      options: ["shibbiydibbyduopbop", "OWW OWW", "helyeahbruthir"],
+    },
   ],
 };
 
@@ -104,7 +109,7 @@ function answerQuestion1(answerChoice) {
 
     test.currentOptions++;
     console.log("Current Question Iteration: ", test.currentQuestion);
-    showQuestion2();
+    futureQuestions();
   } else {
     console.log("False deduction of 10 seconds");
     let deductedTime = (test.timer -= 10);
@@ -120,25 +125,30 @@ function answerQuestion1(answerChoice) {
   // else progress next question
   // else no: display wrong message
 }
-function showQuestion2() {
+function futureQuestions() {
   // add new question to questionBox
-  questionBox.innerHTML = test.questions[test.currentQuestion].question;
-  // add new buttons
-  optionDisplay.appendChild(questionLiOne);
-  optionDisplay.appendChild(questionLiTwo);
-  optionDisplay.appendChild(questionLiThree);
+  if (test.currentQuestion == 4) {
+    endTest();
+    console.log("<<<<<<<Move to End Test>>>>>>>>");
+  } else {
+    questionBox.innerHTML = test.questions[test.currentQuestion].question;
+    // add new buttons
+    optionDisplay.appendChild(questionLiOne);
+    optionDisplay.appendChild(questionLiTwo);
+    optionDisplay.appendChild(questionLiThree);
 
-  // put answers text in li
-  questionLiOne.appendChild(
-    document.createTextNode(test.questions[test.currentQuestion].options[0])
-  );
+    // put answers text in li
+    questionLiOne.appendChild(
+      document.createTextNode(test.questions[test.currentQuestion].options[0])
+    );
 
-  questionLiTwo.appendChild(
-    document.createTextNode(test.questions[test.currentQuestion].options[1])
-  );
-  questionLiThree.appendChild(
-    document.createTextNode(test.questions[test.currentQuestion].options[2])
-  );
+    questionLiTwo.appendChild(
+      document.createTextNode(test.questions[test.currentQuestion].options[1])
+    );
+    questionLiThree.appendChild(
+      document.createTextNode(test.questions[test.currentQuestion].options[2])
+    );
+  }
 }
 
 function endTest() {
