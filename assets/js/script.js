@@ -2,6 +2,7 @@ let questionBox = document.querySelector(".questionBox");
 let optionDisplay = document.querySelector(".optionDisplay");
 
 const test = {
+  timer: 0,
   questionOne: {
     question: "what am the sky",
     answer: "blurple",
@@ -20,12 +21,12 @@ console.dir(test);
 
 // Timer function
 function startCountDown(seconds) {
-  let timer = seconds - 1;
+  test.timer = seconds - 1;
 
   const interval = setInterval(() => {
-    timer--;
-    document.getElementById("timer").innerHTML = timer + 1;
-    if (timer < -1) {
+    test.timer--;
+    document.getElementById("timer").innerHTML = test.timer + 1;
+    if (test.timer < -1) {
       clearInterval(interval);
       alert(
         "Time is up! You did not finish the test in time. Please try again when you are ready!"
@@ -42,9 +43,9 @@ function start() {
   //how do i iterate over questions
   questionBox.innerHTML = test.questionOne.question;
   // create a li for answer options.
-  var questionLiOne = document.createElement("li");
-  var questionLiTwo = document.createElement("li");
-  var questionLiThree = document.createElement("li");
+  var questionLiOne = document.createElement("button");
+  var questionLiTwo = document.createElement("button");
+  var questionLiThree = document.createElement("button");
   // attach class to li
   questionLiOne.classList.add("answerOptions");
   questionLiTwo.classList.add("answerOptions");
@@ -66,17 +67,29 @@ function start() {
   );
 
   // add function to list options.
-  questionLiOne.addEventListener("click", answerQuestion1);
-  questionLiTwo.addEventListener("click", answerQuestion2);
-  questionLiThree.addEventListener("click", answerQuestion3);
+  questionLiOne.addEventListener("click", function () {
+    answerQuestion1(test.questionOne.options[0]);
+  });
+  questionLiTwo.addEventListener("click", function () {
+    answerQuestion1(test.questionOne.options[1]);
+  });
+  questionLiThree.addEventListener("click", function () {
+    answerQuestion1(test.questionOne.options[2]);
+  });
 }
 // console.log("answer question One click", test.questionOne.answer);
-function answerQuestion1() {
+function answerQuestion1(answerChoice) {
+  // shows time left in console.log
+  console.log(test.timer);
   // validate answer
   //  does answer match option.
-  let aq1 = test.questionOne.answer == test.questionOne.options[0];
-  if (!aq1) {
+  console.log(answerChoice, test.questionOne.answer);
+  let aq1 = test.questionOne.answer === answerChoice;
+  if (aq1) {
     console.log("was option 1 right? : ", aq1);
+  } else {
+    console.log("False deduction of 10 seconds");
+    test.timer -= 10;
   }
   // to next question if other option is selected remove 10 seconds
   // does the answer provide match answer for the question
