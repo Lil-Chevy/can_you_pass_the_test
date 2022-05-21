@@ -3,21 +3,22 @@ let optionDisplay = document.querySelector(".optionDisplay");
 
 const test = {
   timer: 0,
-  questionOne: {
-    question: "what am the sky",
-    answer: "blurple",
-    options: ["plot", "tulip", "blurple"],
-  },
-  questionTwo: {
-    question: "Taco Tuesday Menu",
-    answer: "blurple",
-    options: ["plot", "tulip", "frick"],
-  },
+  currentQuestion: 0,
+  questions: [
+    {
+      question: "what am the sky",
+      answer: "blurple",
+      options: ["plot", "tulip", "blurple"],
+    },
+    {
+      question: "Taco Tuesday Menu",
+      answer: "blurple",
+      options: ["plot", "tulip", "frick"],
+    },
+  ],
 };
 
 console.dir(test);
-
-// };
 
 // Timer function
 function startCountDown(seconds) {
@@ -41,7 +42,7 @@ function start() {
   startCountDown(600);
   // makes button.
   //how do i iterate over questions
-  questionBox.innerHTML = test.questionOne.question;
+  questionBox.innerHTML = test.questions[test.currentQuestion].question;
   // create a li for answer options.
   var questionLiOne = document.createElement("button");
   var questionLiTwo = document.createElement("button");
@@ -57,69 +58,41 @@ function start() {
 
   // put answers text in li
   questionLiOne.appendChild(
-    document.createTextNode(test.questionOne.options[0])
+    document.createTextNode(test.questions[test.currentQuestion].options[0])
   );
   questionLiTwo.appendChild(
-    document.createTextNode(test.questionOne.options[1])
+    document.createTextNode(test.questions[test.currentQuestion].options[1])
   );
   questionLiThree.appendChild(
-    document.createTextNode(test.questionOne.options[2])
+    document.createTextNode(test.questions[test.currentQuestion].options[2])
   );
 
   // add function to list options.
   questionLiOne.addEventListener("click", function () {
-    answerQuestion1(test.questionOne.options[0]);
+    answerQuestion1(test.questions[test.currentQuestion].options[0]);
   });
   questionLiTwo.addEventListener("click", function () {
-    answerQuestion1(test.questionOne.options[1]);
+    answerQuestion1(test.questions[test.currentQuestion].options[1]);
   });
   questionLiThree.addEventListener("click", function () {
-    answerQuestion1(test.questionOne.options[2]);
+    answerQuestion1(test.questions[test.currentQuestion].options[2]);
   });
 }
-// console.log("answer question One click", test.questionOne.answer);
+// console.log("answer question One click", test.questions[test.currentQuestion].answer);
 function answerQuestion1(answerChoice) {
   // shows time left in console.log
   console.log(test.timer);
   // validate answer
   //  does answer match option.
-  console.log(answerChoice, test.questionOne.answer);
-  let aq1 = test.questionOne.answer === answerChoice;
+  console.log(answerChoice, test.questions[test.currentQuestion].answer);
+  let aq1 = test.questions[test.currentQuestion].answer === answerChoice;
   if (aq1) {
     console.log("was option 1 right? : ", aq1);
+    test.currentQuestion++;
+    console.log("Current Question Iteration: ", test.currentQuestion);
   } else {
     console.log("False deduction of 10 seconds");
     test.timer -= 10;
-  }
-  // to next question if other option is selected remove 10 seconds
-  // does the answer provide match answer for the question
-  // if yes:.
-  // if last question, call end test.
-  // else progress next question
-  // else no: display wrong message
-}
-
-function answerQuestion2() {
-  // validate answer
-  //  does answer match option.
-  let aq2 = test.questionOne.answer === test.questionOne.options[1];
-  if (!aq2) {
-    console.log("was option 2 right? :", aq2);
-  }
-  // to next question if other option is selected remove 10 seconds
-  // does the answer provide match answer for the question
-  // if yes:.
-  // if last question, call end test.
-  // else progress next question
-  // else no: display wrong message
-}
-
-function answerQuestion3() {
-  // validate answer
-  //  does answer match option.
-  let aq3 = test.questionOne.answer === test.questionOne.options[2];
-  if (aq3) {
-    console.log("was option 3 right?:", aq3);
   }
   // to next question if other option is selected remove 10 seconds
   // does the answer provide match answer for the question
