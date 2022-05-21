@@ -1,5 +1,5 @@
 let questionBox = document.querySelector(".questionBox");
-let optionDisplay = document.querySelector(".option-display");
+let optionDisplay = document.querySelector(".optionDisplay");
 
 const test = {
   questionOne: {
@@ -16,9 +16,6 @@ const test = {
 
 console.dir(test);
 
-// this function makes the first question visible
-// function quiz() {
-//     document.getElementsByClassName("question-one")[0].style.display= "block";
 // };
 
 // Timer function
@@ -26,7 +23,6 @@ function startCountDown(seconds) {
   let timer = seconds - 1;
 
   const interval = setInterval(() => {
-    console.log(timer);
     timer--;
     document.getElementById("timer").innerHTML = timer + 1;
     if (timer < -1) {
@@ -45,17 +41,74 @@ function start() {
   // makes button.
   //how do i iterate over questions
   questionBox.innerHTML = test.questionOne.question;
-  // display options
-  optionDisplay.innerHTML = test.questionOne.options[0];
-  // creating paragraph within box to add question information.
+  // create a li for answer options.
+  var questionLiOne = document.createElement("li");
+  var questionLiTwo = document.createElement("li");
+  var questionLiThree = document.createElement("li");
+  // attach class to li
+  questionLiOne.classList.add("answerOptions");
+  questionLiTwo.classList.add("answerOptions");
+  questionLiThree.classList.add("answerOptions");
+  // attach answer options to ul
+  optionDisplay.appendChild(questionLiOne);
+  optionDisplay.appendChild(questionLiTwo);
+  optionDisplay.appendChild(questionLiThree);
 
-  //     "click",
+  // put answers text in li
+  questionLiOne.appendChild(
+    document.createTextNode(test.questionOne.options[0])
+  );
+  questionLiTwo.appendChild(
+    document.createTextNode(test.questionOne.options[1])
+  );
+  questionLiThree.appendChild(
+    document.createTextNode(test.questionOne.options[2])
+  );
 
-  //presents first question information.
+  // add function to list options.
+  questionLiOne.addEventListener("click", answerQuestion1);
+  questionLiTwo.addEventListener("click", answerQuestion2);
+  questionLiThree.addEventListener("click", answerQuestion3);
+}
+// console.log("answer question One click", test.questionOne.answer);
+function answerQuestion1() {
+  // validate answer
+  //  does answer match option.
+  let aq1 = test.questionOne.answer == test.questionOne.options[0];
+  if (!aq1) {
+    console.log("was option 1 right? : ", aq1);
+  }
+  // to next question if other option is selected remove 10 seconds
+  // does the answer provide match answer for the question
+  // if yes:.
+  // if last question, call end test.
+  // else progress next question
+  // else no: display wrong message
 }
 
-function answerQuestion() {
+function answerQuestion2() {
   // validate answer
+  //  does answer match option.
+  let aq2 = test.questionOne.answer === test.questionOne.options[1];
+  if (!aq2) {
+    console.log("was option 2 right? :", aq2);
+  }
+  // to next question if other option is selected remove 10 seconds
+  // does the answer provide match answer for the question
+  // if yes:.
+  // if last question, call end test.
+  // else progress next question
+  // else no: display wrong message
+}
+
+function answerQuestion3() {
+  // validate answer
+  //  does answer match option.
+  let aq3 = test.questionOne.answer === test.questionOne.options[2];
+  if (aq3) {
+    console.log("was option 3 right?:", aq3);
+  }
+  // to next question if other option is selected remove 10 seconds
   // does the answer provide match answer for the question
   // if yes:.
   // if last question, call end test.
