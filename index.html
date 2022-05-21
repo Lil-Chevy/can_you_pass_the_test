@@ -10,7 +10,11 @@
   </head>
   <!-- body -->
   <body>
-    <header class="high-score">View High Scores</header>
+    <header>
+      <article class="high-score">View High Scores.</article>
+      <article class="timer-count-down">Time Left:</article>
+      <div id="timer"></div>
+    </header>
     <section class="content">
       <h1 class="title">Coding Quiz Challenge</h1>
       <article>
@@ -22,9 +26,12 @@
           keep in mind that incorrect answers will penalize your score/time
         </p>
         <p class="paragraph">by ten seconds!</p>
-        <button onclick="quiz()" class="startBtn">Start Quiz</button>
       </article>
-      <div class="question-one">Question One</div>
+      <button style="text-align: center" onclick="start()" class="startBtn">
+        Start Quiz
+      </button>
+      <div class="questionBox"></div>
+      <ul class="optionDisplay"></ul>
     </section>
     <script src="./assets/js/script.js">
       "script.js"
