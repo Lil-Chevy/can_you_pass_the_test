@@ -1,8 +1,8 @@
 let questionBox = document.querySelector(".questionBox");
 let optionDisplay = document.querySelector(".optionDisplay");
-let questionLiOne = document.createElement("button");
-let questionLiTwo = document.createElement("button");
-let questionLiThree = document.createElement("button");
+let questionButton1 = document.createElement("button");
+let questionButton2 = document.createElement("button");
+let questionButton3 = document.createElement("button");
 
 const test = {
   timer: 0,
@@ -60,34 +60,34 @@ function start() {
   // create a li for answer options.
 
   // attach class to li
-  questionLiOne.classList.add("answerOptions");
-  questionLiTwo.classList.add("answerOptions");
-  questionLiThree.classList.add("answerOptions");
+  questionButton1.classList.add("answerOptions");
+  questionButton2.classList.add("answerOptions");
+  questionButton3.classList.add("answerOptions");
 
   // attach answer options to ul
-  optionDisplay.appendChild(questionLiOne);
-  optionDisplay.appendChild(questionLiTwo);
-  optionDisplay.appendChild(questionLiThree);
+  optionDisplay.appendChild(questionButton1);
+  optionDisplay.appendChild(questionButton2);
+  optionDisplay.appendChild(questionButton3);
 
   // put answers text in li
-  questionLiOne.appendChild(
+  questionButton1.appendChild(
     document.createTextNode(test.questions[test.currentQuestion].options[0])
   );
-  questionLiTwo.appendChild(
+  questionButton2.appendChild(
     document.createTextNode(test.questions[test.currentQuestion].options[1])
   );
-  questionLiThree.appendChild(
+  questionButton3.appendChild(
     document.createTextNode(test.questions[test.currentQuestion].options[2])
   );
 
   // add function to list options.
-  questionLiOne.addEventListener("click", function () {
+  questionButton1.addEventListener("click", function () {
     answerQuestion1(test.questions[test.currentQuestion].options[0]);
   });
-  questionLiTwo.addEventListener("click", function () {
+  questionButton2.addEventListener("click", function () {
     answerQuestion1(test.questions[test.currentQuestion].options[1]);
   });
-  questionLiThree.addEventListener("click", function () {
+  questionButton3.addEventListener("click", function () {
     answerQuestion1(test.questions[test.currentQuestion].options[2]);
   });
 }
@@ -103,9 +103,9 @@ function answerQuestion1(answerChoice) {
     console.log("was option 1 right? : ", aq1);
     test.currentQuestion++;
     // remove older buttons
-    questionLiOne.innerHTML = "";
-    questionLiTwo.innerHTML = "";
-    questionLiThree.innerHTML = "";
+    questionButton1.innerHTML = "";
+    questionButton2.innerHTML = "";
+    questionButton3.innerHTML = "";
 
     test.currentOptions++;
     console.log("Current Question Iteration: ", test.currentQuestion);
@@ -133,28 +133,37 @@ function futureQuestions() {
   } else {
     questionBox.innerHTML = test.questions[test.currentQuestion].question;
     // add new buttons
-    optionDisplay.appendChild(questionLiOne);
-    optionDisplay.appendChild(questionLiTwo);
-    optionDisplay.appendChild(questionLiThree);
+    optionDisplay.appendChild(questionButton1);
+    optionDisplay.appendChild(questionButton2);
+    optionDisplay.appendChild(questionButton3);
 
     // put answers text in li
-    questionLiOne.appendChild(
+    questionButton1.appendChild(
       document.createTextNode(test.questions[test.currentQuestion].options[0])
     );
 
-    questionLiTwo.appendChild(
+    questionButton2.appendChild(
       document.createTextNode(test.questions[test.currentQuestion].options[1])
     );
-    questionLiThree.appendChild(
+    questionButton3.appendChild(
       document.createTextNode(test.questions[test.currentQuestion].options[2])
     );
   }
 }
 
 function endTest() {
+  event.preventDefault();
   // stop the timer.
-  // present high score information.
+  if (test.currentQuestion == 4) {
+    const interval = setInterval(() => {
+      test.timer++;
+      document.getElementById("timer").innerHTML = test.timer + 1;
+    }, 1000);
+  }
+  let addHighScore = document.querySelector(".timer-count-down");
+  localStorage.setItem("HighScore :", test.timer);
 }
+// present high score information.
 
 function addHighScore() {
   // capture username.
@@ -169,16 +178,3 @@ function gettingHighScores() {
 // create elements and insert them onto the page.
 // show question function.
 // create box buttons with event handlers.
-
-// Show the question on the screen
-function showQuestion(questionObject) {
-  // show the question
-  // provide options
-  // for loop through the option objects in the question
-  // create button for each option, with button text for option
-  // onClick calls answerQuestion with the options value
-}
-
-function removeQuestion() {
-  // remove the question from the screen
-}
