@@ -10,17 +10,19 @@
     <header>
       <h1>High Scores</h1>
     </header>
-    <div class="displayHighScore"></div>
+    <div>
+      Current Score: <span id="actualScore"></span>
+      <div id="displayHighScore"></div>
+    </div>
     <form>
       <label for="highScore">Name: </label>
       <input type="text" id="hScore" name="hScore" />
       <input type="submit" value="submit" />
     </form>
     <section>
-      <button style="text-align: center" onclick="goBackTest()" id="backButton">
-        Restart Quiz
-      </button>
+      <button onclick="goBackTest()" id="backButton">Restart Quiz</button>
     </section>
     <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/highscore.js"></script>
   </body>
 </html>

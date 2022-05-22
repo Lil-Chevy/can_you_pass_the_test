@@ -164,7 +164,7 @@ function endTest() {
     }, 1000);
   }
   let addHighScore = document.querySelector(".timer-count-down");
-  localStorage.setItem("HighScore :", test.timer);
+  localStorage.setItem("HighScore", test.timer);
 }
 // restart button to go back to test
 function goBackTest() {
@@ -176,14 +176,6 @@ function goBackTest() {
 function addHighScore() {
   // capture username.
   // use local storage to persist data
-}
-
-function gettingHighScores() {
-  // from local Storage.
-  // show scores.
-  let highestScore = localStorage.key(0);
-  let localStorageHighScore = JSON.stringify(highestScore);
-  highScoreBox.innerHTML = localStorageHighScore;
 }
 
 // create elements and insert them onto the page.
