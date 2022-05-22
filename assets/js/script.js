@@ -3,6 +3,7 @@ let optionDisplay = document.querySelector(".optionDisplay");
 let questionButton1 = document.createElement("button");
 let questionButton2 = document.createElement("button");
 let questionButton3 = document.createElement("button");
+let backButton = document.querySelector("#backButton");
 
 const test = {
   timer: 0,
@@ -165,9 +166,8 @@ function endTest() {
   let addHighScore = document.querySelector(".timer-count-down");
   localStorage.setItem("HighScore :", test.timer);
 }
-// present high score information.
+// restart button to go back to test
 function goBackTest() {
-  let backButton = document.querySelector("#backButton");
   backButton.addEventListener("click", function () {
     window.location.href = "index.html";
   });
