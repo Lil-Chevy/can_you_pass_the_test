@@ -12,24 +12,38 @@ const test = {
   currentOptions: 0,
   questions: [
     {
-      question: "what am the sky",
-      answer: "blurple",
-      options: ["plot", "tulip", "blurple"],
+      question:
+        "What below shows a variable called carName and has the value of Volvo",
+      answer: "var carName = volvo;",
+      options: [
+        "var volov = car",
+        "carvolvo = var car",
+        "var carName = volvo;",
+      ],
     },
     {
-      question: "Taco Tuesday Menu",
-      answer: "YAA",
-      options: ["Yeet", "YAA", "SCREE"],
+      question: "What does a loop do?",
+      answer:
+        "Loop helps us to execute a task repeatedly. Instead of manually writing the same functions, we can write loops to do that for us.",
+      options: [
+        "Loop helps us to execute a task repeatedly. Instead of manually writing the same functions, we can write loops to do that for us.",
+        "it's a funny word",
+        "is an array",
+      ],
     },
     {
-      question: "bow di bow dang diggy diggy to up jump the boogy",
-      answer: "SCREEE",
-      options: ["SCREEE", "bow", "e=mc2"],
+      question: "What does /'let'/ do?",
+      answer: "Declares a variable that cannot be redeclared",
+      options: [
+        "executes a function",
+        "Declares a variable that cannot be redeclared",
+        " executes e=mc2",
+      ],
     },
     {
-      question: "pudgie can i get an__",
-      answer: "OWW OWW",
-      options: ["shibbiydibbyduopbop", "OWW OWW", "helyeahbruthir"],
+      question: "What is the equivalent of i = i + i; ?",
+      answer: "i++",
+      options: ["i++", "i!", "i#>.plusi"],
     },
   ],
 };
@@ -55,7 +69,7 @@ function startCountDown(seconds) {
 
 // click the button starts the timer.
 function start() {
-  startCountDown(600);
+  startCountDown(30);
   // makes button.
   //how do i iterate over questions
   questionBox.innerHTML = test.questions[test.currentQuestion].question;
@@ -171,11 +185,6 @@ function goBackTest() {
   backButton.addEventListener("click", function () {
     window.location.href = "index.html";
   });
-}
-
-function addHighScore() {
-  // capture username.
-  // use local storage to persist data
 }
 
 // create elements and insert them onto the page.
