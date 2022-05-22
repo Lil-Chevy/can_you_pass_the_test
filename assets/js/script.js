@@ -157,6 +157,8 @@ function endTest() {
   if (test.currentQuestion == 4) {
     const interval = setInterval(() => {
       test.timer++;
+      window.location.href = "highscore.html";
+
       document.getElementById("timer").innerHTML = test.timer + 1;
     }, 1000);
   }
@@ -164,6 +166,12 @@ function endTest() {
   localStorage.setItem("HighScore :", test.timer);
 }
 // present high score information.
+function goBackTest() {
+  let backButton = document.querySelector("#backButton");
+  backButton.addEventListener("click", function () {
+    window.location.href = "index.html";
+  });
+}
 
 function addHighScore() {
   // capture username.
