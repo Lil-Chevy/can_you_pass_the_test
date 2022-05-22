@@ -4,6 +4,7 @@ let questionButton1 = document.createElement("button");
 let questionButton2 = document.createElement("button");
 let questionButton3 = document.createElement("button");
 let backButton = document.querySelector("#backButton");
+let highScoreBox = document.querySelector(".displayHighScore");
 
 const test = {
   timer: 0,
@@ -153,7 +154,6 @@ function futureQuestions() {
 }
 
 function endTest() {
-  event.preventDefault();
   // stop the timer.
   if (test.currentQuestion == 4) {
     const interval = setInterval(() => {
@@ -181,6 +181,9 @@ function addHighScore() {
 function gettingHighScores() {
   // from local Storage.
   // show scores.
+  let highestScore = localStorage.key(0);
+  let localStorageHighScore = JSON.stringify(highestScore);
+  highScoreBox.innerHTML = localStorageHighScore;
 }
 
 // create elements and insert them onto the page.
