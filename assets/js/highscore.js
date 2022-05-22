@@ -10,16 +10,15 @@ document.addEventListener("DOMContentLoaded", function gettingHighScores() {
 
 function addHighScore() {
   // capture username.
-  let textFieldEntry = document.getElementById("hScore");
-  let userNameInput = textFieldEntry.addEventListener("submit", addHighScore);
+  let textFieldEntry = document.getElementById("hScore").value;
   // use for information display of score and username submission.
   let myArray = {
-    key: userNameInput,
-    Value: highestScore,
+    key: textFieldEntry,
+    value: highestScore,
   };
   let myArray1 = JSON.stringify(myArray);
   //   set username to local storage
-  console.log("userNameInput", userNameInput);
+  console.log("userNameInput", textFieldEntry);
   //   add data to local storage.
   localStorage.setItem("User Name", myArray1);
 
@@ -28,12 +27,8 @@ function addHighScore() {
   //create list element
   let createLi = document.createElement("li");
   // take data and concatenate a string.
-  let concatenateNameScore = myArray.key + " " + myArray.Value;
+  let concatenateNameScore = myArray.key + " " + myArray.value;
   // append username to ordered list
   scoreBoard.append(createLi, concatenateNameScore);
   // use local storage to persist data
 }
-
-// use this nonsense to set to local storage.
-// let highestScore = localStorage.getItem("HighScore");
-// let localStorageScore = JSON.stringify(highestScore);

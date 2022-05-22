@@ -1,19 +1,21 @@
-/* root */
-
-/* universal selector */
-
-/* element selectors */
-
 /* class selectors */
-.title, .paragraph {
-    display: flex;
-    justify-content: center;
+.title,
+.paragraph {
+  display: flex;
+  justify-content: center;
 }
 
-.startBtn {
-    /* text-align: center; */
+.questionBox {
+  margin: 10 px;
+  padding: 10px;
+}
+
+.answerOptions {
+  display: flex;
+  align-items: center;
+  padding: 10px 10px;
 }
 
 .question-one {
-    display: none;
+  display: none;
 }
