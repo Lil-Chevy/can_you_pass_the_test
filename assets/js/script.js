@@ -71,6 +71,7 @@ function startCountDown(seconds) {
 function start() {
   startCountDown(30);
   // makes button.
+  questionButton1.remove();
   //how do i iterate over questions
   questionBox.innerHTML = test.questions[test.currentQuestion].question;
   // create a li for answer options.
@@ -173,20 +174,9 @@ function endTest() {
     const interval = setInterval(() => {
       test.timer++;
       window.location.href = "highscore.html";
-
       document.getElementById("timer").innerHTML = test.timer + 1;
     }, 1000);
   }
   let addHighScore = document.querySelector(".timer-count-down");
   localStorage.setItem("HighScore", test.timer);
 }
-// restart button to go back to test
-function goBackTest() {
-  backButton.addEventListener("click", function () {
-    window.location.href = "index.html";
-  });
-}
-
-// create elements and insert them onto the page.
-// show question function.
-// create box buttons with event handlers.
